@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <mpi.h>     /* For MPI functions, etc */ 
+
+int main(void) {
+   int        comm_sz;               /* Number of processes    */
+   int        my_rank;               /* My process rank        */
+
+   /* Start up MPI */
+   MPI_Init(NULL, NULL); 
+
+   /* Get the number of processes */
+   MPI_Comm_size(MPI_COMM_WORLD, &comm_sz); 
+   if (comm_sz != 5){
+       MPI_Finalize();
+   }
+   /* Get my rank among all the processes */
+   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank); 
+   int x = 4, y = 3;
+   int f0, f1, f2, f3, f4;
+
+   if (my_rank == 0){
+       f0 = 4 * x;
+       printf("f0=%d\n", f0);
+       MPI_Send(f0, 1, MPI_INT, 1, 0, MPI_COMM_WORLD); 
+   }else if (my_rank == 1){
+       MPI_Recv(f0, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, NULL);
+       f1 = f0 < y + 4?f0:y+4;
+       printf("f1=%d\n", f1);
+       MPI_Send(f1, 1, MPI_INT, 2, 0, MPI_COMM_WORLD);  
+   }else if (my_rank == 2){
+       MPI_Recv(f1, 1, MPI_INT, 1, 0, MPI_COMM_WORLD, NULL);
+       f2 = f1 < 3*x + y?f1:3*x+y;
+       printf("f2=%d\n", f2);
+       MPI_Send(f1, 1, MPI_INT, 3, 0, MPI_COMM_WORLD); 
+       MPI_Send(f2, 1, MPI_INT, 3, 0, MPI_COMM_WORLD); 
+       MPI_Send(f1, 1, MPI_INT, 4, 0, MPI_COMM_WORLD);
+       MPI_Send(f2, 1, MPI_INT, 4, 0, MPI_COMM_WORLD); 
+   }else if (my_rank == 3){
+       MPI_Recv(f1, 1, MPI_INT, 2, 0, MPI_COMM_WORLD, NULL);
+       MPI_Recv(f2, 1, MPI_INT, 2, 0, MPI_COMM_WORLD, NULL);
+       f3 = f2 < f1 + 5?f2:f1+5;
+       printf("f3=%d\n", f3);
+   }else if (my_rank == 4){
+       MPI_Recv(f1, 1, MPI_INT, 2, 0, MPI_COMM_WORLD, NULL);
+       MPI_Recv(f2, 1, MPI_INT, 2, 0, MPI_COMM_WORLD, NULL);
+       f4 = f2 > f1 + 5?f2:f1+5;
+       printf("f4=%d\n", f4);
+   }
+   int f = 0, int all = 0;
+   if (my_rank == 0){
+       f = f0;
+   }else if (my_rank == 1){
+       f = f1;
+   }else if (my_rank == 2){
+       f = f2;
+   }else if (my_rank == 3){
+       f = f3;
+   }else if (my_rank == 4){
+       f = f4;
+   }
+
+   MPI_Reduce(f, all, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+   if (my_rank == 0){
+       printf("Sum=%d\n", all);
+   }
+
+   /* Shut down MPI */
+   MPI_Finalize(); 
+
+   return 0;
+}  /* main */
+
+
+#include <stdio.h>
+#include <mpi.h>     /* For MPI functions, etc */ 
+
+int main(void) {
+   int        comm_sz;               /* Number of processes    */
+   int        my_rank;               /* My process rank        */
+
+   /* Start up MPI */
+   MPI_Init(NULL, NULL); 
+
+   /* Get the number of processes */
+   MPI_Comm_size(MPI_COMM_WORLD, &comm_sz); 
+   if (comm_sz != 5){
+       MPI_Finalize();
+   }
+   /* Shut down MPI */
+   MPI_Finalize(); 
+
+   return 0;
+}  /* main */

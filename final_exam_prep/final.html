@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>final.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="overview">Overview</h2>
+<ol>
+<li>Parallelism: dominat paradigm for future computing</li>
+<li>multi-core processor: single integrated circuit, two or more processing unit, read/write in parallel</li>
+<li>gpu: specialized processors for graphics and floatng-point arithmetic calculations, more cheaper core than cpu</li>
+<li>Parallel Computer Paradigms:
+<ol>
+<li>multicore/SMP/symmetric multi-processor: shared memory, multi core</li>
+<li>HPC/distributed memory: multi process, individual memory, comm via network bus</li>
+<li>SIMD/GPU: one core/control unit, muliple ALU/arithmetic unit</li>
+</ol>
+</li>
+<li>possible performance issue: load imbalance among different core; communication overhead; mutex, deadlock, blocking
+<img src="imgs/apiTable.png" alt=""></li>
+</ol>
+<h2 id="hardware">Hardware</h2>
+<ol>
+<li>Moore's Law: The number of transistors on microchips doubles every two years</li>
+<li>Dennard Scaling: As MOSFET (silicon transistor) features shrink, switching time and power consumption fall proportionally</li>
+<li>due to laws above: smaller transistors -&gt; faster processors -&gt; increased power consumption -&gt; increase heat -&gt; unreliable processors, leads to single core limit due to overheat, undermine parallel computing before 2003.</li>
+<li>rise of parallel computing after 2003 due to:
+<ol>
+<li>better chip yield in multicore</li>
+<li>overheating in faster clock frequency, so switch to multiple cores on a chip and stop increasing clock frequency</li>
+<li>rise of gpu and ML</li>
+</ol>
+</li>
+<li>challenges in parallel computing:
+<ol>
+<li>diffcult to write parallel code without bugs</li>
+<li>locking/race condition in shared memory system</li>
+<li>communication overhead in multi-thread/process inter-communication</li>
+<li>load imbalance of processors, bottleneck of Amdahl's law, speed up tends to fixed with increasing #processors</li>
+</ol>
+</li>
+<li>execution feature: fetch instruction, decode, fetch operand; execute, store result, next...</li>
+<li>von neumann bottleneck: separation of memory and cpu
+<ol>
+<li>disk/ main memory access speed &lt;&lt; cache &amp; register speed &lt;&lt; cpu execution speed</li>
+<li>solution: avoid false sharing, reuse values in fast memory; use larger cache, more cache hit than miss, use vectorization as multiple read/write, pre-fetch</li>
+<li>cache, on same cpu chip, faster than main memory, L1,2,3.</li>
+<li>principle of locality:
+<ol>
+<li>spatial locality: accessing near location, like same row values</li>
+<li>temporal locality: access in near future</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>cache hit: data found in cache</li>
+<li>cache miss: data not found in cache, only accessible through main memory</li>
+<li>cache line: blocks on data</li>
+<li>virtual memory: function as secondary storage cache</li>
+<li>page table: translate the virtual address into physical address</li>
+<li>ILP (Instruction Level Parallelism): multiple function units simultaneously executing instructions</li>
+<li>pipeling: different function units arranged in stages
+<ol>
+<li>e.g., multiple (a,b,c)s, arrange three unit for each part, then u1 do a, both u2 do b and u1 do snd a,...</li>
+</ol>
+</li>
+<li>multiple issues: multiple instructions initiated simultaneously by multiple replicated function units
+<ol>
+<li>static: funits are scheduled at compile time</li>
+<li>dynamic: funits are scheduled at runtime</li>
+</ol>
+</li>
+<li>speculation: compiler / unit can make a guess about an instruction during branch, executes the instruction on the basis of the guess, if guess false, just go back and recompute another branch</li>
+<li>hardware multi-threading: system continues to work if current thread is blocked.
+<ol>
+<li>fine grained: switch threads after each instruction, skipping threads that are blocked, round-robin</li>
+<li>coarse grained: only switch threads that are blocked waiting for time consuming operation to complete, may starvation</li>
+<li>simultaneous multithreading (SMT): allow multiple threads to make use of multiple units</li>
+<li>switching also have overhead.</li>
+</ol>
+</li>
+<li>Flynn's Taxonomy
+<ol>
+<li>SISD (classical von Neumann), MISD, SIMD, MIMD</li>
+</ol>
+</li>
+<li>GPU, vector processor: SIMD, vectorization
+<ol>
+<li>drawback: all ALU have to execute same instruction or remain idle</li>
+<li>operate synchronously</li>
+<li>ALU have no instruction storage</li>
+<li>efficient for data parallelism</li>
+</ol>
+</li>
+<li>Vector processor:
+<ol>
+<li>pros: vectorizing compilers can identify the structs to vectorize or not; high memory bandwidth, use all item in cache line.</li>
+<li>cons: cannot handle irregular data structs, not scalable, expensive vs single-core processor</li>
+</ol>
+</li>
+<li>GPU: can run more than one instruction stream on single core</li>
+<li>MIMD: shared memory system or distributed memory system</li>
+<li>uniform memory access: all cores can access all the memory location directly and same time</li>
+<li>non-uniform memory access: some cores share same memory location, multiple group of them, connected via bus, access memory space belong to other group may need to go through other cores.</li>
+<li>distributed system: connected by network</li>
+<li>interconnection networks:
+<ol>
+<li>shared memory interconnection: connected via switch, high cost, like a grid, faster than bus</li>
+<li>distributed: direct interconnect, each switch is directly connected to processor-memory pair
+<ol>
+<li>toroidal mesh, bisection bandwidth n2/4 fully connected network</li>
+</ol>
+</li>
+<li>indirect interconnect: switch may not directly connected</li>
+<li>hypercube: every adjacent node's id only differ one bit, d-dimension, node have d neighbors</li>
+<li>butterfly network: unfolded hypercube, d-dmin has (d+1)2^d switches, n=2^d procs, diameter=logn, bisection bandwidth=n</li>
+</ol>
+</li>
+</ol>
+<h2 id="software">Software</h2>
+<ol>
+<li>Not easy and efficient to write translation program that auto convert serial program to parallel program, new parallel algorithm always better than translated one</li>
+<li>task parallelism: partition into various sub-tasks</li>
+<li>data parallelism: partition data, every core do similar operation on different part of the data</li>
+<li>concurrent computing: one program, multiple sub-tasks can be in progress at any instant</li>
+<li>parallel computing: one program, multiple sub-tasks cooperate closely to solve problems</li>
+<li>distributed computing: program cooperate with other programs to solve problems</li>
+<li>process: instance of running program, memory block, descriptors, sec info, process state</li>
+<li>thread is more light weight, one process can control multiple threads</li>
+<li>multitasking single core: every task get turn/time slice, do round robin</li>
+<li>compiler: check syntax, translate to assembly, optimize</li>
+<li>register allocation: how to allocate data in register, use graph coloring,</li>
+<li>compiler optimization still not enough</li>
+<li>SPMD: use if-else on single program, run on multiple process/thread.</li>
+<li>dynamic thread: master thread create/terminate thread, efficient resource use, thread creation/termination overhead</li>
+<li>static thread: thread pool created first and do work, only terminate until cleanup, better performance, may waste thread when some of them idle</li>
+<li>race condition: when units access shared variable simultaneously, result in error without protection.
+<ol>
+<li>solution to race condition: critical section, mutex, busy waiting (not efficient)</li>
+</ol>
+</li>
+<li>thread-safe code: can be simultaneously executed by several threads</li>
+<li>data dependencis: RAW, WAR, WAW</li>
+<li>C uses row-major to store array.</li>
+<li>ikj and kij is faster</li>
+<li>inconsistent data in cache vs main memory:
+<ol>
+<li>write-through: caches updating the data in main memory at the time it is written to cache</li>
+<li>write-back: cache mark data in the cache as dirty, when cache line replaced by a new cache line from memory, dirty line will write to memory</li>
+</ol>
+</li>
+<li>cache mapping, where to put data on cache when load from main memory:
+<ol>
+<li>full associative: place any location, n-way set associative: can be put in one of n places</li>
+<li>direct mapped: each cache line has unique location to put in cache</li>
+<li>replace least recent used cache line by new fetched one when overlap</li>
+</ol>
+</li>
+<li>programmer no control on cache / update</li>
+<li>cache coherence: uniformity of shared resource data that ends up stored in multiple local caches.
+<ol>
+<li>solution1: Snoopy caching ensures cache coherence with limited scalability. a bus catch any signal from all local cache, mark local data in local cache to invalid.</li>
+<li>solution2: directive based cache coherence: ds directory, store status of all cache line, when see updates, consult the directory and each core cache controller invalidate self local cache line if related.</li>
+</ol>
+</li>
+<li>false sharing: two unrelated variable set on <strong>same cache line</strong>, update one result re-fetch from main memory, leads to low scalability.
+<ol>
+<li>solution1: padding data to full cache line size</li>
+<li>solution2: lock/mutex</li>
+<li>solution3: optimize memory allocation</li>
+</ol>
+</li>
+<li>coordination, communication, load balancing, synchronization</li>
+<li>reduction lowerbound: logn</li>
+<li>message transmission time = a + m/b; a: latency.s, m: message_size.byte, b: bandwidth: bytes/s;</li>
+<li>gap = 1/b, time for 1 byte gap.</li>
+<li>message latency = a + #Chunks * gap</li>
+<li>running time = exec time + waiting time + delivery time = #Flops * g + #word_moved * gap + #message * a</li>
+<li>computation intensity (CI): #flops/#words_moved = f/m</li>
+<li>scalability:
+<ol>
+<li>strong: fix efficiency (E), fix problem size, increase process count</li>
+<li>weak: fix efficiency (E), increase problem size + process count together</li>
+</ol>
+</li>
+<li>speedup: S = Ts / Tp,</li>
+<li>Ts: serial runtime</li>
+<li>Tp: parallel runtime</li>
+<li>#core: P</li>
+<li>speedup == performance gain</li>
+<li>S = Told/Tnew = 1 / ((1-a) + a/k)</li>
+<li>a: speed up portion %</li>
+<li>k: speed up factor/#process</li>
+<li>ideal S = P</li>
+<li>efficiency: E = S / P = 1 / P((1-a) + a/k)</li>
+<li>ideal: E = 1</li>
+<li>worse: E = 0, S tends to 0 and P tends to inf</li>
+<li>logn &lt; n^0~1
+<img src="imgs/sumscan.png" alt=""></li>
+</ol>
+<h2 id="pthread">Pthread</h2>
+<ol>
+<li>threads are contained inside a process</li>
+<li>can share memory within the parent process</li>
+<li>POSIX: portable operating system interface, unix standard, library can be linked to C, API for multi-threading, only on POSIX systems</li>
+<li>support parallelism (data+task)， synchronization, no explicit support on communication.</li>
+<li>busy waiting, may be removed by compiler, waste cpu time.</li>
+<li>mutex, thread be blocked when acquiring the lock will be waiting in the queue, until other unlock.</li>
+<li>sempahores: non-binary advanced control of locking</li>
+<li>sem_init(sem, shared, init_val), shared = 0 if among thread</li>
+<li>barrier</li>
+<li>condition variable, suspend exec until event
+<ol>
+<li>signal: guarantee to hold the lock when return</li>
+<li>wait: release the lock and wait for signal</li>
+</ol>
+</li>
+<li>pthread parallel linked list: use read-write lock best.
+<ol>
+<li>when only read, no blocking</li>
+<li>if write, block both simultaneous read/write operation until former operation done.</li>
+</ol>
+</li>
+<li>thread unsafe operation: strtok: caches the input line by declaring variable to have static storage class, but shared among threads.
+<ol>
+<li>asctime</li>
+<li>gethostbyaddr</li>
+<li>gethostbyname</li>
+<li>localtime</li>
+<li>rand</li>
+</ol>
+</li>
+</ol>
+<pre class="hljs"><code><div>read_lock() {
+  mutex.lock();
+  <span class="hljs-keyword">while</span> (writer)
+    unlocked.wait(mutex);
+  readers++;
+  mutex.unlock();
+}
+
+read_unlock() {
+  mutex.lock();
+  readers--;
+  <span class="hljs-keyword">if</span> (readers == <span class="hljs-number">0</span>)
+    unlocked.signal_all();
+  mutex.unlock();
+}
+
+write_lock() {
+  mutex.lock();
+  <span class="hljs-keyword">while</span> (writer || (readers &gt; <span class="hljs-number">0</span>))
+    unlocked.wait(mutex);
+  writer = <span class="hljs-literal">true</span>;
+  mutex.unlock();
+}
+
+write_unlock() {
+  mutex.lock();
+  writer = <span class="hljs-literal">false</span>;
+  unlocked.signal_all();
+  mutex.unlock();
+}
+</div></code></pre>
+<h2 id="openmp">OpenMP</h2>
+<ol>
+<li>OpenMP support both data and task parallelism, thread-based, explicit parallelism</li>
+<li>OpenMP is a compiler directive, may supported by gcc compiler nowaday</li>
+<li>OpenMP is multi-thread</li>
+<li>OpenMP critical directive is slower than atomic directive, can use special load-modify-store instruction</li>
+<li>shared memory /multicore</li>
+<li>not supported by all vendors, not check data dependencies and deadlock, not guarantee i/o same file is sync,</li>
+<li>num thread may not as defined unless forced via env var, system has limitation</li>
+<li>firstprivate: init private with prev value</li>
+<li>default(none) should manual specify</li>
+<li>2 parallel for is slower than 1 parallel + 2 for</li>
+<li>flush cache to main memory</li>
+</ol>
+<h2 id="mpi">MPI</h2>
+<ol>
+<li>distributed memory system, collection of processors</li>
+<li>no MPI code after finalize</li>
+<li>no shared variable, no lock</li>
+<li>procs 0 do stdin, no two procs can access same file</li>
+<li>SPMD</li>
+<li>recv can recover the sender information by status, without knowing size, sender, tag</li>
+<li>MPI_Recv always block</li>
+<li>MPI_Send will not return until you can use the send buffer. It may or may not block (it is allowed to buffer, either on the sender or receiver side, or to wait for the matching receive).</li>
+<li>MPI_Bsend May buffer; returns immediately and you can use the send buffer. A late add-on to the MPI specification. Should be used only when absolutely necessary.</li>
+<li>MPI_Ssend will not return until matching receive posted</li>
+<li>MPI_Rsend May be used ONLY if matching receive already posted. User responsible for writing a correct program.</li>
+<li>MPI_Isend Nonblocking send. But not necessarily asynchronous. You can NOT reuse the send buffer until either a successful, wait/test or you KNOW that the message has been received (see MPI_Request_free). Note also that while the I refers to immediate, there is no performance requirement on MPI_Isend. An immediate send must return to the user without requiring a matching receive at the destination. An implementation is free to send the data to the destination before returning, as long as the send call does not block waiting for a matching receive. Different strategies of when to send the data offer different performance advantages and disadvantages that will depend on the application.</li>
+<li>MPI_Ibsend buffered nonblocking</li>
+<li>MPI_Issend Synchronous nonblocking. Note that a Wait/Test will complete only when the matching receive is posted.</li>
+<li>MPI_Irsend As with MPI_Rsend, but nonblocking.</li>
+<li>MPI may hang or deadlock if all proc do MPI_Send&amp;blocked and no one recv</li>
+<li>MPI non-block operation must be waited or tested</li>
+<li>mpi/cuda needs specialized compilers, but openMP can be used by typical gcc compiler.</li>
+</ol>
+<h2 id="matrix">Matrix</h2>
+<ol>
+<li>Cannon less efficient than SUMMA algorithm because it works on square matrices.</li>
+<li>1d,2d,3d layout, summa, cannon all have same exec/computation time.</li>
+<li>efficiency: summa is most efficient in practice.</li>
+<li>3d layout use larger M (fast memory limited capacity) to achieve optimal communication</li>
+<li>Computation intensity: block(b) &gt; strassen() &gt; matrix-matrix(2);<br>
+3d(n/p^1/3, M = n^2/p^2/3) &gt; cannon &gt; summa &gt; strassen &gt; 1d</li>
+<li>Cannon algorithm storage requirements remain constant and are independent of the number of processors.</li>
+<li>theorem: #words_moved = lower_bound(n^3/sqrt(M)), M is fast memory size</li>
+<li>block mult: #words_moved = lower_bound(N^3 * b^2),
+N is #block dim = n/b, communication optimal in single core</li>
+<li>#words_moved_per_proc = lower_bound(n^3/P*sqrt(M)) = lower_bound(n^2/sqrt(P)), M = n^2/P</li>
+<li>allow non-conflicting unicast and use unicast to simulate broadcast in 2log(n)
+<img src="imgs/cannon.png" alt="">
+<img src="imgs/summa.png" alt=""></li>
+</ol>
+<h2 id="cuda">CUDA</h2>
+<ol>
+<li>single instruction multiple data</li>
+<li>GPU vs CPU: GPU: thousands of weaker core, optimized for parallel processing, specialized computing. CPU: few strong cores, best for serial processing, general purpose</li>
+<li>application: dynamic fluid simulation, gaming, vr</li>
+<li>multi-threaded, data parallel processor, good at data parallelism, can do task parallelism among different block</li>
+<li>CPU don't have out-of-order control logic, branch predictor, memory pre-fetcher. But only have control, ALU and cache&amp;memory</li>
+<li>CPU core share limit context, can exec instruction independently, while GPU core share instruction stream (SIMD/SIMT)</li>
+<li>GPU use branch redundancy by running multiple branches on different core and pick correct one finally</li>
+<li>GPU core may stall on next instruction if previous cores haven't finish on same one. No L1 cache</li>
+<li>as accelerator</li>
+<li>host: cpu+cpu mem (L1,2,3 cache, host DRAM)</li>
+<li>device: gpu+gpu mem (dev L2 cache, dev DRAM)</li>
+<li>streaming processor ~ vector processor</li>
+<li>cuda requires customized compiler, as extension of C</li>
+<li><strong>global</strong> (kernel code) call by cpu, run on gpu
+<strong>device</strong> call by gpu, run on gpu
+<strong>host</strong> call by cpu, run on cpu</li>
+<li>dev/host pointer can be passed, do pointer arithmetic by each other but no de-referenced/read/write from opponent memory.</li>
+<li>unified memory: accessible by both CPU and GPU</li>
+<li>&lt;&lt;&lt;#block, #threadsPerBlock&gt;&gt;&gt;
+<ol>
+<li>blockDim.x – the number of threads per block</li>
+<li>gridDim.x – the number of blocks per grid</li>
+<li>threadIdx.x – the thread index within a block</li>
+<li>blockIdx.x – the block index within a grid</li>
+</ol>
+</li>
+<li>can sync and communicate among same block thread, may sync among grid in CUDA 9 https://stackoverflow.com/questions/6404992/cuda-block-synchronization</li>
+<li>host can access gpu global memory use cudaMemcpy</li>
+<li>__syncthreads() only sync same block threads, every same block thread should all call this</li>
+<li>EXCLUSIVE_PROCESS – the GPU is assigned to only one process at a time, and individual process threads may submit work to the GPU concurrently.</li>
+<li>DEFAULT – multiple processes can use the GPU simultaneously. Individual threads of each process may submit work to the GPU simultaneously.</li>
+<li>GPU is optimized for graphics processing and simulations.
+<img src="imgs/cuda_index.png" alt="">
+<img src="imgs/cuda_memtype.png" alt="">
+<img src="imgs/stencil_1d.png" alt=""></li>
+</ol>
+<h2 id="sorting">Sorting</h2>
+<ol>
+<li>bucket sort has load imbalance</li>
+<li>sample sort ensures load balance at worst 2n/m elements, vs therotical n/m</li>
+<li>splitter as -inf, m/2, 3m/2, .....</li>
+<li>parallel merge sort, use binary search during merging, log^3n</li>
+<li>bitonic sort: log^2n</li>
+<li>[time] sample sort &lt; merge sort &lt; bitonic sort (a worse than b) (parallel)</li>
+<li>[speedup] bitonic &gt; merge &gt; sample</li>
+<li>serial mergesort better than serial bitonic sort</li>
+<li>mesh slower than hypercube.
+<img src="imgs/serial_sorting.png" alt="">
+<img src="imgs/sample_sort.png" alt="">
+<img src="imgs/bitonic.png" alt="">
+<img src="imgs/master_theorem.png" alt=""></li>
+</ol>
+<h2 id="ml">ML</h2>
+<ol>
+<li>supervised / semi / unsupervised / reinforcement</li>
+<li>Graph neural networks can predict graph connectivity</li>
+<li>TPU is more optimize for NN than GPU</li>
+<li>systolic-array mult, hardware parallel algo, On for matrix mult</li>
+<li>Metric embedding allows non-metric data to be processed by neural networks</li>
+<li>CNN can be parallelized by parallel matrix multiplications</li>
+<li>Semi-supervised learning can learn new data labels from partially labelled data
+<img src="imgs/inex_parallelization.png" alt="">
+<img src="imgs/ml_parallelism.png" alt=""></li>
+</ol>
+<h2 id="cloud">Cloud</h2>
+<ol>
+<li>deliver computer as service</li>
+<li>virtualization, abstraction of computing resource, like multi os on one physical laptop, key tech for cloud computing</li>
+<li>EC2 even allow to launch instance in diff+multiple locations</li>
+<li>google cloud: use many cheap machine run linux for mega file system, allow component failure, bugs</li>
+<li>scale up: small number of high-end server, need smp(symm multithread processing) machines, not cost effective</li>
+<li>scale out: big number of commodity low-end servers, cost effective, low price</li>
+<li>google file system (GFS):
+<ol>
+<li>no gpu, no shared memory</li>
+<li>normal component failure, use constant monitoring/error detection, fault tolerance, auto recovery</li>
+<li>huge file, multi gb file</li>
+<li>single master, store data location in gfs chunck server</li>
+<li>chunck server, store data</li>
+<li>client, query location from master then query data from chunck server based on former location</li>
+<li>files broken to chuncks, may store in multiple chunck servers</li>
+<li>each chunck is replicated on 3 default server for recovery and fault tolerance / backup</li>
+</ol>
+</li>
+<li>MapReduce: (key, value)</li>
+<li>fast recovery:
+<ol>
+<li>if task crash / fault recovery
+<ol>
+<li>retry another node</li>
+<li>repeat fail same task, end it</li>
+<li>require <em>deterministic</em> user code</li>
+</ol>
+</li>
+<li>if node crash
+<ol>
+<li>relaunch current task on other node, input via file system replication</li>
+</ol>
+</li>
+<li>slow task
+<ol>
+<li>launch snd copy on another node</li>
+<li>take the first finished output</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Hadoop: output re-input from file</li>
+<li>Spark: in-memory computing primitives, optimized across operators; can retain data in memory/cache for next step, more iterative the better</li>
+<li>Resilient distributed datasets: immutable, paritioned collections of objects, can be cached in faster memory for reuse, can do transformation &amp; action</li>
+<li>interactively: build RDD, transformation (filter), action</li>
+<li>RDD tracks lineage info that can be used to efficiently re-build lost data partitions</li>
+<li>mapreduce support large data processing
+<img src="imgs/cloud_vs_hpc.png" alt="">
+<img src="imgs/cloudPC.png" alt="">
+<img src="imgs/mpi_vs_mapreduce.png" alt=""></li>
+</ol>
+<h2 id="dlt">DLT</h2>
+<ol>
+<li>stateful: c-s comm protocol cannot proceed unless server full recover previous client history info</li>
+<li>stateless: server continue to work even after losing the info</li>
+<li>orphan (client crashes and previous work request has been sent to server),
+<ol>
+<li>solution 1: extermination: client keeps a log, read when reboot, kill the orphan by notifying server, cons on high overhead on maintaining the log</li>
+<li>solution 2: reincarnation: divide time slice, client broadcast epoch when reboot, any server heard that kill the orphans, cons when disconncted network</li>
+<li>solution 3: expiration: each c-s operation lease a time T for computation, if not finished on time, should ask server for another lease</li>
+</ol>
+</li>
+<li>only exist t-resilient protocol when t &lt; n/3 with total process n</li>
+<li>byzantine protocol must guarantee to deliver and may out of order (sync / half-sync), honest party must consistent (no spy), progress is mae in definite time (livenss)</li>
+<li>bitcoin: decentralized ledger, no permission on maintain ledger, robust against malicious attack</li>
+<li>bitcoin may suffer 51% attack, 51% attacker not working on longest chain and branch out the chain and make longest chain, beat others, not practical</li>
+<li>snd image collision-resistant: no one can feasible find x2 given x1, such that x1 != x2 and H(x1) = H(x2)</li>
+<li>block: Hash(prev_block):time:nonce:data</li>
+<li>proof of work, computation puzzle takes lowerbound(difficulty) to solve, upperbound(1) to verify, solve by randomly try all y, can be parallelized</li>
+<li>honest miners always extend longest chain, assume &gt;0.5 miners are honest</li>
+<li>difficulty is adjust time by time, not too long/short to find a block (every 10 mins is good), if time too long, drop diffculty</li>
+<li>ASIC resistance: decentralization, ASIC cannot always win, reduce gap between ASIC and GPU/CPU</li>
+<li>puzzle with more memory to solve the puzzle, every one need access to main memory frequently</li>
+<li>scrypt, asic resistant, but hard to verify</li>
+<li>ethash, asic resistant, easy to verify
+<img src="imgs/server_failure.png" alt="">
+<img src="imgs/gossiping_based.png" alt="">
+<img src="imgs/byzantine_vsbitcoin.png" alt="">
+<img src="imgs/byzatine_protocol_property.png" alt="">
+<img src="imgs/mining_process.png" alt="">
+<img src="imgs/scrypt.png" alt=""></li>
+</ol>
+
+</body>
+</html>

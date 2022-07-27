@@ -1,0 +1,1972 @@
+---------------------->Benchmark script-PartA
+/bin/rm -f regmult matrixgen blockmult blockmult2 summa summa2 cannon cannon2 summa_pthread summa_pthread2 cannon_pthread cannon_pthread2
+gcc -Wall -O3 -o regmult regmult.c -lm matrix_lib.c -fopenmp
+gcc -Wall -O3 -o matrixgen matrixgen.c -lm matrix_lib.c
+gcc -Wall -O3 -o blockmult blockmult.c -lm matrix_lib.c -fopenmp
+gcc -Wall -O3 -o blockmult2 blockmult2.c -lm matrix_lib.c -fopenmp
+mpicc -Wall -O3 -o summa summa.c -lm matrix_lib.c
+mpicc -Wall -O3 -o summa2 summa2.c -lm matrix_lib.c -fopenmp
+mpicc -Wall -O3 -o cannon cannon.c -lm matrix_lib.c
+mpicc -Wall -O3 -o cannon2 cannon2.c -lm matrix_lib.c -fopenmp
+gcc -Wall -O3 -o summa_pthread summa_pthread.c -lm matrix_lib.c -lpthread
+gcc -Wall -O3 -o summa_pthread2 summa_pthread2.c -lm matrix_lib.c -lpthread -fopenmp
+gcc -Wall -O3 -o cannon_pthread cannon_pthread.c -lm matrix_lib.c -lpthread
+gcc -Wall -O3 -o cannon_pthread2 cannon_pthread2.c -lm matrix_lib.c -lpthread -fopenmp
+Generate test cases..
+Test case generated in file: ../testcases/input/matrix/testcase_100
+Test case generated in file: ../testcases/input/matrix/testcase_200
+Test case generated in file: ../testcases/input/matrix/testcase_500
+Test case generated in file: ../testcases/input/matrix/testcase_1000
+Test case generated in file: ../testcases/input/matrix/testcase_2000
+-----------------Block Mult-----------------
+----------------------------------------------------------
+dimension: 100 - numthread: 1 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.121547e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.196532e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 1 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 8.358561e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.317593e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 1 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.132181e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.027953e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 1 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.924874e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.469293e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 2 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.400610e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.083941e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 2 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.211551e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.220343e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 2 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.118756e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.806191e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 2 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.103032e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.649180e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 4 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.785772e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.605695e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 4 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.474029e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.538467e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 4 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.101379e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.920764e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 4 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.637143e-01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.153142e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 8 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.062611e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.162143e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 8 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.117740e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.102738e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 8 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.713976e-01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.675405e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 8 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.676569e-01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.160638e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 16 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.488454e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.707969e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 16 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.254390e-01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.695914e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 16 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.126499e-01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.016717e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 100 - numthread: 16 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.545591e-01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 8.769176e+00 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 1 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.752557e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.225981e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 1 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.741080e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.677118e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 1 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.342932e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.493037e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 1 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.289044e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.097366e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 2 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.223410e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.316754e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 2 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.882409e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.985618e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 2 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.661086e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.242053e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 2 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.995921e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.816247e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 4 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.246896e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.650057e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 4 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.452613e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.885873e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 4 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.722088e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.474685e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 4 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.718914e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.897860e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 8 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.123613e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.158307e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 8 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.888804e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.880110e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 8 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.989717e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.151669e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 8 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.673968e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.196947e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 16 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.408709e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.047173e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 16 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.100253e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.362054e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 16 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.305580e+00 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 8.288817e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 200 - numthread: 16 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.999243e-01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.247378e+01 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 1 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.196528e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.137890e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 1 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.223740e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.040533e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 1 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.234250e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.374460e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 1 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.269279e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.728722e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 2 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.262141e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.679757e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 2 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.805581e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.914897e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 2 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.068009e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.722341e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 2 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.607059e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.637887e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 4 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.282566e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.002336e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 4 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.732323e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.852286e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 4 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.526839e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.141899e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 4 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.130106e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.744266e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 8 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.734518e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.540587e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 8 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.679099e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.957998e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 8 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.987444e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.954951e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 8 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.124538e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.021875e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 16 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.571667e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 8.927028e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 16 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.846416e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.429956e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 16 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.070830e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.212701e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 500 - numthread: 16 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.498590e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.181286e+02 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 1 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.560122e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.010533e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 1 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.569718e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 8.291932e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 1 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.870918e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.293440e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 1 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.730683e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.780851e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 2 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.860957e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.532659e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 2 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.317242e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 8.810655e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 2 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.176254e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.204622e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 2 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.056252e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.157962e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 4 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.512493e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.427717e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 4 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.830426e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.491323e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 4 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.671936e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.690252e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 4 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.613056e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.708824e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 8 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.257981e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.222806e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 8 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.489303e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.283249e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 8 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.435076e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.648444e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 8 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.337438e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 8.855289e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 16 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.351193e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.206095e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 16 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.833314e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.185613e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 16 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 8.085090e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.082471e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 1000 - numthread: 16 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.637588e+01 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.497026e+03 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 1 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.645668e+04 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.228430e+06 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 1 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.053266e+04 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.628603e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 1 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.818949e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.435893e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 1 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.575914e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.023325e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 2 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.887585e+04 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.751816e+06 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 2 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.045206e+04 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.132215e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 2 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.962206e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.484748e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 2 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.340142e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.682488e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 4 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.946644e+04 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.902871e+06 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 4 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.259068e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.462617e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 4 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.028433e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.117235e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 4 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.215982e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.506699e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 8 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 9.794830e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.026909e+06 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 8 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.660302e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 2.639000e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 8 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.018560e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.289372e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 8 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.083621e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 7.136988e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 16 - blocksize: 1
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.922075e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 6.328944e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 16 - blocksize: 2
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.334229e+03 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 1.787832e+05 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 16 - blocksize: 4
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 5.303315e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 8.513123e+04 milli-seconds
+Correct result
+----------------------------------------------------------
+dimension: 2000 - numthread: 16 - blocksize: 8
+----------V1----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 3.167307e+02 milli-seconds
+Correct result
+----------V2----------
+start block matrix multiplication
+Matrix multiplication end.. Elapsed time = 4.481845e+04 milli-seconds
+Correct result
+-----------------SUMMA MPI-----------------
+----------------------------------------------------------
+dimension: 100 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.878780e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.007160e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.398440e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.462300e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.257400e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.311960e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.519140e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.298980e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.106950e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.558820e-01 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.501588e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.486169e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.555176e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.483315e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.890990e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.000667e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.116660e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.033050e-01 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.219500e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.467580e-01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.541015e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.377636e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.561156e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.344922e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.410981e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.382970e+00 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.844150e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.909753e+00 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.261506e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.293058e+00 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.743117e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.520849e+02 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.746193e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.523478e+02 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.229397e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.790725e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.189721e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.163277e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.899406e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.896613e+01 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.432286e+03 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.305577e+03 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.422632e+03 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.293293e+03 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.554504e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 5.842409e+02 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.706538e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.423324e+02 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.488951e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.373245e+02 milli-seconds
+-----------------CANNON MPI-----------------
+----------------------------------------------------------
+dimension: 100 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.157819e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.888600e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 5.343340e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.686200e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.397950e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.435220e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.954780e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.999480e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.013860e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.219180e-01 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.183459e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.717465e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.137258e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.676101e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.004298e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.716840e-01 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.231090e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 5.431890e-01 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.304420e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.241840e-01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.892082e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.735621e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.905395e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.771101e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.174211e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.543667e+00 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.040960e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.849359e+00 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.387728e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.076482e+00 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.718815e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.662944e+02 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.726314e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.660836e+02 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.597422e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.176336e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.308779e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.272361e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.299240e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.851234e+01 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.113547e+03 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.353650e+03 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.104778e+03 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.371967e+03 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 8.124257e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.019174e+02 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.479715e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.490417e+02 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.926691e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.406746e+02 milli-seconds
+-----------------SUMMA Pthread-----------------
+----------------------------------------------------------
+dimension: 100 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.178026e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.168013e+00 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.170158e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.162052e+00 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.309914e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 8.449554e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.506090e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.605988e+00 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.007174e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.225088e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.930019e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.842997e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.984856e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 5.065918e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.061056e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.057003e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.696037e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.660990e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.004002e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.884792e+00 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.794909e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.318000e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.512406e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.319693e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.455306e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.374196e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.659989e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.660895e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.877785e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.689291e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.735071e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.510350e+02 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.723391e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.513728e+02 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.676194e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.208202e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 5.919600e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 5.880713e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 5.375600e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.403994e+01 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.430028e+03 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.280950e+03 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.452085e+03 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.276322e+03 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.008431e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.257019e+02 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.423300e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.983279e+02 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.910609e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.891920e+02 milli-seconds
+-----------------CANNON Pthread-----------------
+----------------------------------------------------------
+dimension: 100 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.178980e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.176834e+00 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.179934e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.162052e+00 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.810593e-01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.040501e-01 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.563072e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.573086e+00 milli-seconds
+----------------------------------------------------------
+dimension: 100 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.927065e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.011942e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.931211e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.819155e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.896879e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.836082e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.037930e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.036976e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.673864e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.626896e+00 milli-seconds
+----------------------------------------------------------
+dimension: 200 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.710032e+00 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 4.008055e+00 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.635907e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.323507e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.498197e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.323293e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.448893e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.382112e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.665497e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.701188e+01 milli-seconds
+----------------------------------------------------------
+dimension: 500 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.848483e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 1.949811e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.723401e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.509010e+02 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.730751e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.508578e+02 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.464884e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 9.499598e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.092000e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.189203e+01 milli-seconds
+----------------------------------------------------------
+dimension: 1000 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.729507e+01 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 7.480311e+01 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 1
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.462783e+03 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.290748e+03 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 2
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.439897e+03 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.289163e+03 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 4
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.816559e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 6.064839e+02 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 9
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.335660e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 3.094330e+02 milli-seconds
+----------------------------------------------------------
+dimension: 2000 - numprocs: 16
+----------V1----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.972081e+02 milli-seconds
+----------V2----------
+Correct result
+Matrix multiplication end.. Elapsed time = 2.857680e+02 milli-seconds
+------------------------------------------------
+/bin/rm -f regmult matrixgen blockmult blockmult2 summa summa2 cannon cannon2 summa_pthread summa_pthread2 cannon_pthread cannon_pthread2
+---------------------->Benchmark script-PartB
+/bin/rm -f datagen sampleSort sampleSort2
+gcc -Wall -O3 -o datagen datagen.c -lm sort_lib.c
+mpicc -Wall -O3 -o sampleSort sampleSort.c -lm sort_lib.c
+mpicc -Wall -O3 -o sampleSort2 sampleSort2.c -lm sort_lib.c
+Generate test cases..
+Test case generated in file: ../testcases/input/list/testcase_100
+Test case generated in file: ../testcases/input/list/testcase_200
+-----------------SampleSort MPI-----------------
+----------------------------------------------------------
+dimension: 100 - numprocs: 1
+----------V1----------
+read in input unsorted list..Done, length: 100
+Correct result
+Total used time=4.372800e-02ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 100
+Proc 0, global splitter - 
+Correct result
+Total used time=4.901400e-02ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+----------------------------------------------------------
+dimension: 100 - numprocs: 2
+----------V1----------
+read in input unsorted list..Done, length: 100
+Correct result
+Total used time=6.860620e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 100
+Proc 0, global splitter - 793,
+Correct result
+Total used time=7.840180e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+----------------------------------------------------------
+dimension: 100 - numprocs: 4
+----------V1----------
+read in input unsorted list..Done, length: 100
+Correct result
+Total used time=7.058420e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 100
+Proc 0, global splitter - 135,526,582,
+Correct result
+Total used time=8.031440e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+----------------------------------------------------------
+dimension: 100 - numprocs: 8
+----------V1----------
+read in input unsorted list..Done, length: 100
+Total used time=6.825250e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 100
+Total used time=6.841660e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+----------------------------------------------------------
+dimension: 100 - numprocs: 16
+----------V1----------
+read in input unsorted list..Done, length: 100
+Total used time=7.365360e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 100
+Total used time=7.520600e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+----------------------------------------------------------
+dimension: 200 - numprocs: 1
+----------V1----------
+read in input unsorted list..Done, length: 200
+Correct result
+Total used time=4.820800e-02ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 200
+Proc 0, global splitter - 
+Correct result
+Total used time=5.568900e-02ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+----------------------------------------------------------
+dimension: 200 - numprocs: 2
+----------V1----------
+read in input unsorted list..Done, length: 200
+Correct result
+Total used time=7.293870e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 200
+Proc 0, global splitter - 926,
+Correct result
+Total used time=7.820710e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+----------------------------------------------------------
+dimension: 200 - numprocs: 4
+----------V1----------
+read in input unsorted list..Done, length: 200
+Correct result
+Total used time=7.090870e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 200
+Proc 0, global splitter - 324,434,715,
+Correct result
+Total used time=7.966790e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+----------------------------------------------------------
+dimension: 200 - numprocs: 8
+----------V1----------
+read in input unsorted list..Done, length: 200
+Correct result
+Total used time=8.145850e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 200
+Proc 0, global splitter - 87,228,368,440,540,715,808,
+Correct result
+Total used time=9.350810e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+----------------------------------------------------------
+dimension: 200 - numprocs: 16
+----------V1----------
+read in input unsorted list..Done, length: 200
+Total used time=7.560200e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s
+----------V2----------
+read in input unsorted list..Done, length: 200
+Total used time=7.535110e-01ms
+output has been stored into file: ../testcases/output/list/testcase_s2
+------------------------------------------------
+/bin/rm -f datagen sampleSort sampleSort2
+
+======================================================================================
+                  Resource Usage on 2022-05-29 16:00:08:
+   Job Id:             41620119.gadi-pbs
+   Project:            c37
+   Exit Status:        0
+   Service Units:      1048.16
+   NCPUs Requested:    96                     NCPUs Used: 96              
+                                           CPU Time Used: 17:38:19                                   
+   Memory Requested:   256.0GB               Memory Used: 4.48GB          
+   Walltime requested: 10:00:00            Walltime Used: 05:27:33        
+   JobFS requested:    200.0MB                JobFS used: 8.16MB          
+======================================================================================

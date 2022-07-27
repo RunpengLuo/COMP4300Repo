@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -P c37
+#PBS -q normal
+#PBS -j oe
+#PBS -l walltime=10:00:00,mem=256GB
+#PBS -l wd
+#PBS -l ncpus=96
+#
+
+# lscpu
+# module load openmpi
+cd /home/444/rl0644/COMP4300/student-comp4300-2022-project/code/
+./benchmark_block.sh
+# cd /home/444/rl0644/COMP4300/student-comp4300-2022-project/code/
+# ./benchmark_b.sh

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="comp4300-individual-project---documentation">COMP4300 Individual Project - Documentation</h1>
+<h4 id="runpeng-luo-u7109933">Runpeng Luo u7109933</h4>
+<h4 id="may-26-2022">May 26, 2022</h4>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li>Part A
+<ol>
+<li>Block Matrix Multiplication by OpenMP</li>
+<li>SUMMA algorithm by MPI</li>
+<li>Cannon's algorithm by MPI</li>
+<li>SUMMA algorithm by Pthread &amp; Cannon's algorithm by Pthread</li>
+</ol>
+</li>
+<li>Part B
+<ol>
+<li>Parallel Sample Sort</li>
+</ol>
+</li>
+<li>Reference</li>
+</ol>
+<p>Note: the input file will only be parsed by the main thread (Part A.1) or master process (default process 0, Part A.2, 3, Part B.1) or master thread (default thread 0, Part A.4, 5). Result is compared with sequential algorithm result. And all the output and elapsed time will be stored in output file with same manner as input. <strong>Benchmark and result is discussed in report.md/report.pdf, related program raw data output and benchmark script is stored in benchmark_assets/benchmark_result/, you can use <code>datagen</code> and <code>matrixgen</code> to generate random input test case</strong></p>
+<p>For each program, please comment out the portion below for verifying the output result</p>
+<pre class="hljs"><code><div>    <span class="hljs-comment">/* This portion of code is appeared in the end of every program's main method.And only used to verify the final output result by comparing to sequential computed result manually */</span>
+    <span class="hljs-keyword">if</span> ((err = verifyResult(A, B, m, n, p, C))){
+        <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">"wrong result\n"</span>);
+        <span class="hljs-comment">// exit(0);</span>
+    }<span class="hljs-keyword">else</span>{
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Correct result\n"</span>);
+    }
+
+</div></code></pre>
+<h2 id="part-a">Part A</h2>
+<h3 id="block-matrix-multiplication-by-openmp">Block Matrix Multiplication by OpenMP</h3>
+<p>First of all, consider the matrix A has dimension m * n, and B has dimension n * p, the resulting matrix C must have dimension m * p.
+For general block matrix multiplication, where no restriction on where matrix dimension is divisible by blocksize (pre-defined, related to cache size, platform dependent), we first divide the matrix A, B and C into numbers of sublocks (use <code>ceil</code> function to ensure the boundary entries also be covered in a block), where each of them have size at most blocksize * blocksize.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># blocksize = 3, m = 10, n = 7, p = 4</span>
+<span class="hljs-comment"># (a,b): (row size, column size) in each sublock</span>
+    |(3,3)|(3,3)|(3,1)|     |(3,2)|(3,2)|      |(3,2)|(3,2)|
+A:  |(3,3)|(3,3)|(3,1)| * B:|(3,2)|(3,2)|  = C:|(3,2)|(3,2)|
+    |(3,3)|(3,3)|(3,1)|     |(1,2)|(1,2)|      |(3,2)|(3,2)|
+    |(1,3)|(1,3)|(1,1)|                        |(1,2)|(1,2)|
+</div></code></pre>
+<p>As the matrix has been divided by subblocks, as example shown above, notice every corresponding pair of subblocks in A and B have matching dimension for multiplcation.
+After that, instead of iterating each matrix entry directly through m,n,p, we iterate through every subblocks in a similar fashion. Within the nested sub-block for-loop, we perform normal matrix multiplication for matching subblock A and B pair. From  example above, when computing first row, first column subblock C, we need 3 subblocks along the first row of matrix A and 3 subblocks along the first column of matrix B.</p>
+<p>Finally, we can apply some parallelism techniques using OpenMP to speed up the code. We can use OpenMP <code>parallel for schedule(dynamic)</code> to parallel the outer subblock for-loop.</p>
+<p>As the variation (version 2), I further parallelize the code by adding another OpenMP <code>parallel for schedule(dynamic)</code> for the inner subblock i-k-j for-loop region, in which I also use <code>collapse</code> to turn outer subblock for-loop into 1 (also for inner i-k-j for-loop), notice that since within the i-k-j for-loop, different iteration may write to same entry <code>C[i][j]</code> in parallel. To avoid the race condition, I add a OpenMP <code>atomic</code> directive to make the <code>C[i][j]</code> entry write into a critical section.</p>
+<h3 id="summa-algorithm-by-mpi">SUMMA algorithm by MPI</h3>
+<p>First of all, as sanity check, if number of processes is not a number that composited as its square root, the program will terminate the processes that not forming a square process grid (process grid dimension is refered by <code>r</code>). Otherwise, all the process will be used for computation. Consider master process input the matrix A with dimension m * k and matrix B with dimension k * n via normal file IO module, master process will divide the matrix A, B and C into subblocks (use <code>round</code> function to ensure the boundary entries also be covered by last row/column of subblocks), as example below.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># number of process in used = 9 = 3 * 3, r = 3, m = 10, k = 7, n = 4</span>
+<span class="hljs-comment"># (a,b): (row size, column size) in each sublock</span>
+                                      /\
+     |(3,2)|(3,2)|(3,3)|      |(2,1)|(2,1)|(2,2)|      |(3,1)|(3,1)|(3,2)|
+A:  &lt;|(3,2)|(3,2)|(3,3)|&gt; * B:|(2,1)|(2,1)|(2,2)|  = C:|(3,1)|[3,1]|(3,2)|
+     |(4,2)|(4,2)|(4,3)|      |(3,1)|(3,1)|(3,2)|      |(4,1)|(4,1)|(3,2)|
+                                      \/
+</div></code></pre>
+<p>For instance, consider process grid has dimension r * r, for matrix A subblock division, first (r-1) process grid rows (columns) will get subblock with dimension row round(m/r) (column round(k/r)), where process grid rth row (column) will hold dimension row (r - (r-1) * round(m/r)) (column r - (r-1) * round(k/r)) (0-indexed), similar fashion for distributing matrix B and C into process grid. By doing so, every process within the process grid will hold a portion from global matrix respect to its relative position in the grid.</p>
+<p>Since MPI allowed to create sub communication group, for simplicity, I create sub group <code>row_comm</code> for all process along each row (similarly for <code>col_comm</code>), process within the same <code>row_comm</code> is identified by its world rank within <code>MPI_COMM_WORLD</code> divided by process grid dimension <code>r</code> (modulo when determine column sub group <code>col_comm</code>).</p>
+<p>Known that for computing subblock <code>C[i][j]</code>, we need i-th subblock row of matrix A and j-th subblock column of matrix B, and each row (column) will involve <code>r</code> (process grid dimension) number of subblocks, hence, we need to broadcast A's i-th row subblock along the process row and B's j-th column subblock along the process, which requires <code>r</code> iterations. Within each iteration, C's local subblock will be added once up until all required subblock A and B be received and used.</p>
+<p>Once all the subblocks of C be computed by corresponding process, we can gather the subblocks back to master process and obtain the elpased time and final global matrix C.</p>
+<p>As the variation (version 2), notice that during local subblock matrix multiplication, we can use OpenMP to introduce more data parallelism by parallelizing i-k-j for-loop using <code>omp for schedule(dynamic)</code>, such that the program is turned into a hybrid multi-process&amp;thread program.</p>
+<h3 id="cannons-algorithm-by-mpi">Cannon's algorithm by MPI</h3>
+<p>Similar to SUMMA algorithm, Cannon's method also require every process within the grid handle a subblock of matrix A, B and C, so the matrix distribution method (before the main algorithm start) is equivalent to SUMMA's implmentation.</p>
+<p>For the main part, we need to left cyclic shift the matrix A's subblock row and up circular shift the matrix B's subblock column, I used <code>MPI_Sendrecv_replace</code> to achieve this.</p>
+<p>Consider the example below, where we have 3 * 3 process grid, and 2nd row (0-indexed) is attempting to do the left cicular shift by 2. (other row just stay for simplicity)</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># process grid = 3 * 3, r = 3, m = 10, k = 7, n = 4</span>
+<span class="hljs-comment"># (a,b): (row size, column size) in each sublock</span>
+
+     |(3,2)|(3,2)|(3,3)|         |0|1|2|
+A:   |(3,2)|(3,2)|(3,3)|  grid:  |3|4|5|
+    &gt;|(4,2)|(4,2)|(4,3)|&lt;       &gt;|6|7|8|&lt;---- involved process row
+
+      |a|b|c|  2nd row left circular <span class="hljs-built_in">shift</span> by 2 |a|b|c|
+A:    |d|e|f|  -----------------------------&gt;   |d|e|f|
+    &lt;-|g|h|i|&lt;-                                 |i|g|h|
+</div></code></pre>
+<p>Consider the row wise, where process 6,7,8 has row id 0,1,2, respectively.
+The shift is done as follows: (px -&gt; py means process x sends to process y)
+1. p0 -&gt; p1
+2. p1 -&gt; p2
+3. p2 -&gt; p0</p>
+<p>Notice that during cyclic shift, every process will receive once and send once only. Now, we generalize the idea to <code>r</code> process grid dimension, consider <code>s</code>th row is attempting to perform left cyclic shift <code>s</code>th row by <code>s</code>, we pick process <code>j</code> (j is in 0..r-1, row rank) along the <code>s</code>th row, the following modular arthmetic formula can be used to compute the row ranks that process <code>j</code> is sending to and receiving from.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># s: s-th row in the process grid</span>
+<span class="hljs-comment"># j: row rank, j-th process along the s-th row_comm</span>
+<span class="hljs-comment"># r: process grid dimension</span>
+send_to_rank = (j - s + r) mod r
+recv_from_rank = (j + s + r) mod r
+</div></code></pre>
+<p>The above formula can also be deployed for up-circular shift.</p>
+<p>Since during circular shift, the buffer that stores the awaiting-to-send submatrix can also be reusd for receiving, besides the actual received submatrix may have different size compare to current holding one. I used padding to ensure that buffer has memory space that enough to store biggest submatrix hold by any process + 2 (additional 2 is for storing the row*column size of sending/receiving submatrix). Example as below:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># convert submatrix with size 2 * 3 into buffer.</span>
+           |1|3|2|
+submatrix: |4|6|5|
+
+<span class="hljs-comment"># first two integers (2,3) are used to recover the matrix dimension when # delivered</span>
+buffer: |2,3,1,3,2,4,6,5|
+</div></code></pre>
+<p>Since buffer space can be reused properly, I use <code>MPI_Sendrecv_replace</code>, which perform blocking <code>MPI_Send</code> and <code>MPI_Recv</code> operation concurrently,
+such that avoiding the <em>dining table philosophers problem</em>.</p>
+<p>After the <code>skew A</code> and <code>skew B</code> circular shift process, we have a for-loop which has similar fashion as <code>SUMMA</code>, where each process compute the temporary local submatrix C value by current holding sumatrix A and B, then share it out (also receive) next submatrix for computation. By doing so, every process ends up with a complete submatrix C, which can be gathered by master process for finalization.</p>
+<p>The variation for Cannon's algorithm implementation is similar to <code>SUMMA</code> one, where I parallelize the local matrix multiplication by a OpenMP <code>for schedule(dynamic)</code> directive, and wish to achive a better speed up by hybriding multi-process and multi-thread.</p>
+<h3 id="summa-algorithm-by-pthread--cannons-algorithm-by-pthread">SUMMA algorithm by Pthread &amp; Cannon's algorithm by Pthread</h3>
+<p>The Pthread version of SUMMA algorithm and Cannon's algorithm has similar idea and implementation as MPI version, communcation is achieved via customized communication
+method (using mutex, conditional variable and barrier), and both Pthread implementations reuse same communication method, although defined in separate program since using global variable. The main idea of algorithms are not discussed again.</p>
+<p>For instance, I uses conditional variable and mutual exclusion lock to implement the synchronized send/recv method. I initialize the individual message buffer space (associate with corresponding mutex and conditional variable) for all threads, declared under global scope. For example, when thread <code>i</code> want to send message to thread <code>j</code>, it will first check the capacity for jth message buffer space, whether thread <code>i</code> is current sender to thread <code>j</code>, and vice versa. If all pre-conditions are satisfied, thread <code>i</code> will simply deep-copy the message into jth message buffer space. Thread who calls the <code>Send</code> will be blocked if receiver's message queue is full, otherwise it will directly put the message and signal the receiver. Before exit, sender will be blocked until receiver acknowledge its message has been delivered, and both sender and receiver will re-initialize the variable (Who I'm sending to and receiving from). Finally, thread can safely exit the <code>Send</code> routine without blocking other thread.</p>
+<p>Thread who wishes to receive message should call <code>Recv</code> function. In particular, it will first signal any blocked sender who is trying to send to current receiver thread. If the message buffer space is empty when the function is called, it will block until the sender who concurrently call the <code>Send</code> function fill the buffer space. When the receiver be signalled by sender thread, it will release from receiver's conditional variable blocking and deep copy the received messsage before exiting the <code>Recv</code> routine. Same as <code>Send</code> function, all the receiver's operation is protected by mutex.</p>
+<p>Notice that all above operations are protected by mutex and conditional variable, pesudo-code as below to describe the behaviour.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">## Sender (A) send to receiver (B), with message (M), buffer space (BUF), </span>
+<span class="hljs-comment">## mutex a, b, conditional variable conda, condb</span>
+<span class="hljs-comment"># Recv</span>
+<span class="hljs-comment"># 3-way handshake</span>
+lock(a)
+Is_Empty(BUF) = True
+signal(conda)
+unlock(a)
+
+lock(b)
+<span class="hljs-keyword">while</span>(A_s receiver /= B) <span class="hljs-built_in">wait</span>(condb, b)
+unlock(b)
+
+lock(a)
+B_s sender = A
+signal(conda)
+unlock(a)
+
+<span class="hljs-comment"># actual recv</span>
+lock(b)
+<span class="hljs-keyword">while</span>(Is_Empty(BUF)) <span class="hljs-built_in">wait</span>(condb, b)
+load message from BUF
+unlock(b)
+
+<span class="hljs-comment"># 3-way handshake</span>
+lock(a)
+Is_Empty(BUF) = True
+signal(conda)
+unlock(a)
+
+lock(b)
+<span class="hljs-keyword">while</span>(A_s receiver == B) <span class="hljs-built_in">wait</span>(condb, b)
+unlock(b)
+
+lock(a)
+B_s sender = invalid
+signal(conda)
+unlock(a)
+
+<span class="hljs-comment"># Send</span>
+<span class="hljs-comment"># 3-way handshake</span>
+lock(a)
+<span class="hljs-keyword">while</span>(not Is_Empty(BUF)) <span class="hljs-built_in">wait</span>(conda, a)
+unlock(a)
+
+lock(b)
+A_s receiver = B
+signal(condb)
+unlock(b)
+
+lock(a)
+<span class="hljs-keyword">while</span>(B_s sender /= B) <span class="hljs-built_in">wait</span>(conda, a)
+unlock(a)
+
+<span class="hljs-comment"># actual send</span>
+lock(b)
+store message to BUF
+Is_Empty(BUF) = False
+signal(condb)
+unlock(b)
+
+<span class="hljs-comment"># 3-way handshake</span>
+lock(a)
+<span class="hljs-keyword">while</span>(not Is_Empty(BUF)) <span class="hljs-built_in">wait</span>(conda, a)
+unlock(a)
+
+lock(b)
+A_s receiver = invalid
+signal(condb)
+unlock(b)
+
+lock(a)
+<span class="hljs-keyword">while</span>(B_s sender = A) <span class="hljs-built_in">wait</span>(conda, a)
+unlock(a)
+</div></code></pre>
+<p>For Pthread cannon's version, I implement a non-blocking version send&amp;recv for cyclic communication to avoid to deadlock, I use barrier to simulate the <code>MPI_Wait</code>. For instance, every thread along the same row will wait until same row (and column) cyclic communication is done. The non blocking send&amp;recv modify the 3-way handshake (as pesudocode above) to avoid the deadlock situation by only checking whether current buffer space's availability.</p>
+<p>Each alternative implementation of Pthread program also adding with OpenMP <code>omp for schedule(dynamic)</code> directive to normal local matrix multiplication and expect to speed up the program further.</p>
+<h2 id="part-b">Part B</h2>
+<h3 id="parallel-sample-sort">Parallel Sample Sort</h3>
+<p>First of all, master process will read in whole un-sorted list and send the list length to all processes, program will only run sample sort when the input size is larger than threshold, which is <code>(2 * comm_size - 1) * comm_size</code> (I use this threshold since every process will hold a sample and generate local splitter with size <code>comm_size - 1</code>, hence each process should hold at least <code>2 * comm_size - 1</code> sample, where we have <code>comm_size</code> processes). If the global list size is less than threshold, process 0 will simply run a local quick sort then exit.</p>
+<p>When the input size is sufficient, sample sort is performed. Consider we have global unsorted list with size <code>n</code>, and <code>p</code> number of processes, process 0 will randomly select <code>p</code> set of sample, each with size <code>2*p - 1</code>, then distributed to every process. When process receive the sample <code>s</code>, it will first run a local quick sort, pick local splitters by considering element from sorted sample with index <code>1,3,5,...,2*p - 3</code>, with size <code>p - 1</code>. Until the local spitter is generated, I use <code>MPI_Allgather</code> to gather the local splitters, and every process will then hold all local splitters from all process, they can do the local quick sort again and generate the global splitters individually.</p>
+<p>When global splitter is generated, every process can now determine which bucket is belong to them, process 0 will then use the global splitter information to prepare the local bucket for each process by distributing global list data, then send it to process with corresponding bucket region. After that, process holds the local bucket can perform final local sort. Until all the processes are done, process 0 can perform a <code>MPI_Gatherv</code> to collect the local sorted bucket in the order of process rank, finalize the program.</p>
+<p>As alternative implementation, instead of distributing the global list by process 0 after the global splitter is set, I distributed the global list before the local splitter is generated, in this case, process is not required to wait until process 0 send the randomly selected sample to do the local splitter computation, but they can generate the sample themselves within the distributed global sub-list.
+The global list distribution can be done in O(logn) via <code>MPI_Scatterv</code>, (<code>v</code> since every process may not hold same number of element, as the input data is not restricted on size). When processes hold a portion of global list, they can do the local sampling, generate local splitter then use <code>MPI_Allgather</code> to share the splitter, and come up global splitter independently.</p>
+<p>Since every process holds a portion of data and global splitter, they can use binary search insertion to insert the local portion into specific local buckets, then use <code>MPI_Alltoallv</code> to share with all processes. As every process receive all the data that belongs to its bucket, they can do local quicksort, and finally gather-ed by master process, finalize the program. The variation rountine is followed with figure 1[1] below.</p>
+<figure>
+  <img src="benchmark_assets/ssr.png" alt="Trulli" style="width:100%">
+    <figcaption align = "center">
+      <b>figure 1. Sample sort</b>
+    </figcaption>
+</figure>
+<h2 id="reference">Reference</h2>
+<p>[1] Wikimedia Commons, Example of parallel Samplesort on processors and an oversampling factor of . https://en.wikipedia.org/wiki/Samplesort#/mediaFile:Parallelersamplesort.svg</p>
+
+</body>
+</html>

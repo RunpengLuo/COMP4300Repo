@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/444/rl0644/COMP4300'
+make: Leaving directory '/home/444/rl0644/COMP4300'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
